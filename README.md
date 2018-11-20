@@ -9,7 +9,7 @@ language: en
 
 narrator: US English Female
 
-script:     js/libv86.js
+script:   https://cdn.jsdelivr.net/gh/andre-dietrich/lua_linux_template/js/libv86.js
 
 
 @eval
@@ -84,9 +84,9 @@ if(!window.emulator) {
         vga_memory_size: 2 * 1024 * 1024,
         // Uncomment to see what's going on
         screen_container: document.getElementById("screen_container@0"),
-        bios: { url: "http://127.0.0.1:4892/seabios.bin" },
-        vga_bios: { url: "http://127.0.0.1:4892/vgabios.bin" },
-        cdrom: { url: "http://127.0.0.1:4892/linux26.iso" },
+        bios: { url: "https://cdn.jsdelivr.net/gh/andre-dietrich/lua_linux_template/emu/seabios.bin" },
+        vga_bios: { url: "https://cdn.jsdelivr.net/gh/andre-dietrich/lua_linux_template/emu/vgabios.bin" },
+        cdrom: { url: "https://cdn.jsdelivr.net/gh/andre-dietrich/lua_linux_template/emu/linux26.iso" },
         autostart: true,
         disable_keyboard: false,
     });
