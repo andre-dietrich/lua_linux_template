@@ -25,6 +25,12 @@ function bashEscape(arg) {
 let input = "lua -e " + bashEscape(`@input`) + "\n";
 let data  = "";
 
+/*send.handle("stop", function(e) {
+  if(window.emulator)
+      window.emulator.keyboard_send_scancodes([ 0x1D, 0x2E ]);
+});
+*/
+
 function resetSerial(container = null) {
     function char_listener(char){
         if(char !== "\r")
@@ -88,12 +94,15 @@ if(!window.emulator) {
         vga_bios: { url: "https://cdn.jsdelivr.net/gh/andre-dietrich/lua_linux_template/emu/vgabios.bin" },
         cdrom: { url: "https://cdn.jsdelivr.net/gh/andre-dietrich/lua_linux_template/emu/linux26.iso" },
         autostart: true,
-        disable_keyboard: false,
+        disable_keyboard: true,
+        disable_speaker: true,
+        disable_mouse: true,
+        fastboot: true,
     });
 
     resetSerial(container);
 
-    "LIA: wait";
+    "LIA: terminal";
 
 } else if(!window.running) {
     window.running = true;
@@ -101,7 +110,7 @@ if(!window.emulator) {
     window.emulator.serial0_send(input);
     input = null;
 
-    "LIA: wait";
+    "LIA: terminal";
 
 } else {
 
