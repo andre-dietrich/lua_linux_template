@@ -119,7 +119,7 @@ if(!window.emulator) {
 
 -->
 
-# Course Main Title
+# Lua Linux Template
 
 
 ``` lua
